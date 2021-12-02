@@ -22,6 +22,9 @@ html {
   --border-color: #eeeeee;
   --icon-color: #afb1b8;
   --modal-icon-border: rgba(0, 0, 0, 0.1);
+  --modal-input-border: rgba(33, 33, 33, 0.2);
+  --border-form: rgba(255, 255, 255, 0.3);
+  --modal-placeholder-text: rgba(117, 117, 117, 0.5);
 }
 /*Reset styles*/
 h1,
@@ -107,7 +110,51 @@ a {
   text-transform: uppercase;
   margin-bottom: 30px;
 }
+/* стилизация modal */
 
+.modal-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+}
+.modal-input {
+  background-color: transparent;
+}
+.modal-icon {
+}
+.modal-input-text {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: var(--text-secondary);
+}
+.modal-input::placeholder,
+.modal-comment::placeholder {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: var(--modal-placeholder-text);
+}
+.modal-checkbox-text {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+}
+.modal-checkbox-text-accent {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  text-decoration-line: underline;
+  color: var(--accent);
+}
 /* стилизация buttons */
 .primary-button {
   color: var(--background-primary);
@@ -134,6 +181,28 @@ a {
   color: var(--background-primary);
   background-color: var(--accent);
   cursor: pointer;
+}
+.footer-form-button {
+  color: var(--background-primary);
+  background-color: var(--accent);
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+}
+.modal-form-button {
+  color: var(--background-primary);
+  background-color: var(--accent);
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
 }
 /*стилизация title*/
 .main-title {
@@ -234,11 +303,31 @@ a {
   color: var(--background-primary);
   font-family: inherit;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+}
+/*стилизация footer form */
+.form-title {
+  color: var(--background-primary);
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.form-text {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--footer-contacts);
+  letter-spacing: 0.03em;
 }
 
 /*--------------------Stile Flexbox--------------------*/
@@ -293,7 +382,43 @@ a {
   padding: 10px 32px;
   border-radius: 4px;
 }
+/* container modal */
 
+.modal {
+  padding: 40px;
+}
+.modal-form {
+  margin-top: 12px;
+}
+.modal-input-field {
+}
+.modal-input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 12px 16px;
+}
+.modal-input-text {
+  display: block;
+  margin-bottom: 4px;
+}
+.modal-comment {
+  width: 100%;
+  height: 120px;
+  padding: 12px 16px;
+}
+.modal-icon {
+}
+.modal-form-button {
+  padding: 10px 56px;
+}
+.modal-checkbox {
+  margin-top: 20px;
+  text-align: center;
+}
+.modal-form-button {
+  margin-top: 30px;
+}
 /*container features*/
 
 .features {
@@ -368,6 +493,11 @@ button {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.footer-form-button {
+  padding: 10px 29px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
 
 /*container portfolio*/
 
@@ -408,6 +538,12 @@ address {
 .footer-contact-item:not(:first-child) {
   margin-top: 9px;
 }
+.form-text {
+  border: 1px solid var(--border-form);
+  box-sizing: border-box;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+}
 
 /*--------------------Decoration--------------------*/
 
@@ -447,6 +583,7 @@ address {
   background-position: center;
   background-repeat: no-repeat;
 }
+/*modal*/
 
 .backdrop {
   position: fixed;
@@ -486,19 +623,34 @@ address {
   display: flex;
   align-items: center;
 }
-/*.button-modal:hover,
+.button-modal:hover,
 .button-modal:focus {
   color: var(--accent);
 }
 .button-modal {
   fill: currentColor;
-}*/
+}
 .is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
 .button-modal-icon {
+}
+.modal-input {
+  border: 1px solid var(--modal-input-border);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.modal-comment {
+  border: 1px solid var(--modal-input-border);
+  box-sizing: border-box;
+  border-radius: 4px;
+  resize: none;
+}
+.modal-icon {
+  position: absolute;
+  margin: 11px 12px;
 }
 /*features*/
 
@@ -625,6 +777,21 @@ address {
   fill: currentColor;
 }
 
+/*footer form*/
+.footer-form {
+  margin-left: 93px;
+  padding-top: 12px;
+}
+.form-text {
+  width: 358px;
+  height: 50px;
+  margin-top: 20px;
+}
+.footer-form-button {
+  margin-left: 12px;
+}
+.form-icon {
+}
 /*buttons*/
 
 .secondary-button:hover,
