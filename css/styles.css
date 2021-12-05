@@ -50,8 +50,19 @@ img {
 address {
   font-style: normal;
 }
-/*--------------------Stile color and font--------------------*/
 
+a {
+  text-decoration: none;
+  font-weight: normal;
+}
+.container {
+  width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.section {
+  padding: 94px 0;
+}
 body {
   background-color: var(--background-primary);
   font-family: Roboto, sans-serif;
@@ -59,10 +70,7 @@ body {
   font-weight: normal;
   letter-spacing: 0.03em;
 }
-a {
-  text-decoration: none;
-  font-weight: normal;
-}
+/*--------------------Stile color and font--------------------*/
 
 /* стилизация logo */
 .logo-items {
@@ -80,8 +88,24 @@ a {
 .logo-studio-footer {
   color: var(--background-primary);
 }
+.header-section {
+  border-bottom: 1px solid var(--border-color);
+}
+.header-section .contact-list {
+  display: flex;
+  margin-left: auto;
+}
+.header-items {
+  display: flex;
+  align-items: center;
+}
+.navigation {
+  margin-left: 93px;
+}
 
-/*Стилизация header links*/
+.nav-list {
+  display: flex;
+}
 .nav-link {
   color: var(--text-primary);
   font-family: inherit;
@@ -90,12 +114,25 @@ a {
   line-height: 1.15;
   letter-spacing: 0.02em;
   transition: color 250ms linear;
+  display: block;
+  padding: 32px 0;
 }
 .nav-link:hover,
 .nav-link:focus,
 .nav-link.current {
   color: var(--accent);
 }
+
+
+.nav-item:not(:last-child) {
+  margin-right: 50px;
+}
+
+.contact-item:not(:last-child) {
+  margin-right: 50px;
+}
+
+
 
 /*Стилизация hero*/
 .hero {
@@ -138,13 +175,12 @@ a {
   letter-spacing: 0.01em;
   color: var(--modal-placeholder-text);
 }
-.modal-checkbox-text span {
+
+.modal-check-icon {
   width: 16px;
   height: 15px;
   border: 2px solid var(--text-primary);
   border-radius: 2px;
-}
-.modal-check-icon {
   fill: transparent;
 }
 .modal-checkbox-text-primary {
@@ -171,6 +207,8 @@ a {
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.06em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
 }
 .secondary-button {
   color: var(--text-primary);
@@ -187,28 +225,6 @@ a {
 .secondary-button:focus {
   color: var(--background-primary);
   background-color: var(--accent);
-}
-.footer-form-button {
-  color: var(--background-primary);
-  background-color: var(--accent);
-  font-family: inherit;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
-}
-.modal-form-button {
-  color: var(--background-primary);
-  background-color: var(--accent);
-  font-family: inherit;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
 }
 /*стилизация title*/
 .main-title {
@@ -328,8 +344,6 @@ a {
 }
 .footer-form-email {
   font-family: inherit;
-  font-style: normal;
-  font-weight: normal;
   font-size: 16px;
   line-height: 1.25;
   color: var(--footer-contacts);
@@ -338,44 +352,8 @@ a {
 
 /*--------------------Stile Flexbox--------------------*/
 
-.container {
-  width: 1200px;
-  padding: 0 15px;
-  margin: 0 auto;
-}
-.section {
-  padding: 94px 0;
-}
 
-/*container header*/
 
-.header-section {
-  border-bottom: 1px solid var(--border-color);
-}
-.header-items {
-  display: flex;
-  align-items: center;
-}
-.navigation {
-  margin-left: 93px;
-}
-.nav-list {
-  display: flex;
-}
-.nav-link {
-  display: block;
-  padding: 32px 0;
-}
-.nav-item:not(:last-child) {
-  margin-right: 50px;
-}
-.header-section .contact-list {
-  display: flex;
-  margin-left: auto;
-}
-.contact-item:not(:last-child) {
-  margin-right: 50px;
-}
 
 /*container hero*/
 
@@ -384,16 +362,23 @@ a {
   text-align: center;
 }
 .primary-button {
-  padding: 10px 32px;
-  border-radius: 4px;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* container modal */
 
 .modal {
   padding: 40px;
 }
+.modal-title {
+  margin-bottom: 12px;
+}
 .modal-form {
-  margin-top: 12px;
 }
 .modal-input-field {
   margin-bottom: 10px;
@@ -411,6 +396,11 @@ a {
   padding: 12px 16px 12px 42px;
   cursor: pointer;
 }
+.modal-textarea-field {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
 .modal-comment {
   width: 100%;
   height: 120px;
@@ -425,15 +415,17 @@ a {
 }
 .modal-checkbox-field {
   margin-top: 20px;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
+  
 }
 .modal-checkbox-text {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
-.modal-checkbox-text span {
+.modal-check-icon {
   margin-right: 8px;
   display: flex;
   align-items: center;
@@ -441,13 +433,6 @@ a {
   cursor: pointer;
 }
 
-.modal-form-button {
-  display: block;
-  padding: 10px 56px;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-}
 /*container features*/
 
 .features {
@@ -520,11 +505,6 @@ button {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.footer-form-button {
-  padding: 10px 29px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-}
 
 /*container portfolio*/
 
@@ -566,16 +546,20 @@ address {
 .footer-contact-item:not(:first-child) {
   margin-top: 9px;
 }
-
+.social-title {
+  margin-bottom: 20px;
+}
 /*container footer form*/
 .footer-form {
-  width: 570px;
-  margin-left: 93px;
+  margin-left: auto;
   padding-top: 12px;
 }
+.footer-form-title {
+  margin-bottom: 20px;
+}
 .footer-form-item {
-  margin-top: 20px;
   display: flex;
+  justify-content: space-between;
 }
 .footer-form-email {
   width: 358px;
@@ -583,10 +567,7 @@ address {
   padding-left: 16px;
   margin-right: 12px;
 }
-.footer-form-button {
-  display: flex;
-  align-items: center;
-}
+
 .footer-form-icon {
   margin-left: 10px;
 }
@@ -667,7 +648,9 @@ address {
   border: 1px solid var(--modal-icon-border);
   display: flex;
   align-items: center;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .button-modal:hover,
 .button-modal:focus {
   color: var(--accent);
@@ -675,6 +658,7 @@ address {
 .button-modal {
   fill: currentColor;
 }
+
 .is-hidden {
   visibility: hidden;
   opacity: 0;
@@ -709,7 +693,7 @@ address {
 .modal-comment:focus {
   border-color: var(--accent);
 }
-.modal-check:checked + .modal-checkbox-text span {
+.modal-check:checked + .modal-checkbox-text .modal-check-icon {
   background-color: var(--accent);
   border: none;
 }
